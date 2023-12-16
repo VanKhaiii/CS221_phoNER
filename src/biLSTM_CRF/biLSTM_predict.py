@@ -26,10 +26,10 @@ def predict(model, tag_tokenizer, sent):
 
 
 
-def predict_bilstm(texts, model):
-    py_vncorenlp.download_model(save_dir='D:\\Nam3\\NLP\\VnCoreNLP')
-    rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir='D:\\Nam3\\NLP\\VnCoreNLP')
-    texts = [' '.join(rdrsegmenter.word_segment(text)) for text in texts]
+def predict_bilstm(texts, model, word_segmenter):
+    # py_vncorenlp.download_model(save_dir='D:\\Nam3\\NLP\\VnCoreNLP')
+    # rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir='D:\\Nam3\\NLP\\VnCoreNLP')
+    texts = [' '.join(word_segmenter.word_segment(text)) for text in texts]
     text_raw = texts
     
     texts = FastText(texts)
